@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import (
     QGridLayout,
     QPushButton,
     QLineEdit,
+    QMessageBox,
 )
 
 class Calculator(QMainWindow):
@@ -22,6 +23,7 @@ class Calculator(QMainWindow):
 
         self.setWindowTitle("계산기")
         self.setFixedSize(300, 400)  # 창 크기 고정
+        self.setFixedSize(300, 450)  # 창 크기 고정 (버튼 추가로 높이 조절)
 
         # 모든 위젯을 담을 중앙 위젯과 메인 레이아웃 설정
         central_widget = QWidget()
@@ -57,6 +59,17 @@ class Calculator(QMainWindow):
         # 메인 레이아웃에 버튼 그리드 추가
         main_layout.addLayout(buttons_layout)
 
+        # 메시지 버튼 추가
+        message_button = QPushButton("message")
+        message_button.setStyleSheet("font-size: 16px; padding: 8px;")
+        message_button.clicked.connect(self.show_message_box)
+        main_layout.addWidget(message_button)
+
+    def show_message_box(self):
+        """
+        메시지 버튼 클릭 시 "Button Clicked" 메시지 박스를 표시합니다.
+        """
+        QMessageBox.information(self, "알림", "Button Clicked")
 
 def main():
     """
