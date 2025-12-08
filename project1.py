@@ -186,7 +186,7 @@ for i in file1[leng1 :]:
 file = rfile1
 r_file = file.split()
 saved_value = {}
-saved_value1 = {}
+saved_value1 = {} # 전 날 뉴스로 인한 주가 변동에 따른 단어들의 가중치 저장본
 for i in r_file:
     if i in saved_value:
         saved_value[i] += 1
