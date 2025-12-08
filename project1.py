@@ -168,13 +168,22 @@ file1 = [
 
 
 
-file = ""
+rfile1 = ""
+rfile2 = ""
 
-for i in file1:
-    file += i['body'] + " "
+leng = len(file1)
+leng1 = int(leng / 2)
+
+for i in file1[: leng1]:
+    rfile1 += i['body'] + " "
+
+for i in file1[leng1 :]:
+    rfile2 += i['body'] + " "
 
 
-file = "사탕 사탕 피자"
+
+
+file = rfile1
 r_file = file.split()
 saved_value = {}
 saved_value1 = {}
@@ -199,7 +208,7 @@ for keys in saved_value.keys():
         saved_value1[keys] = c_value
 
 
-new_file = "과자 사탕 사탕"
+new_file = rfile2
 rn_file = new_file.split()
 
 result_value = 0
